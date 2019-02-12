@@ -1,0 +1,161 @@
+body {
+	background-image: url('../img/trophy.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	font-family: Helvetica;
+}
+
+#nav{
+	position: fixed;
+	z-index: 99;
+	background: #000;
+	color: #fff;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+#nav li{
+	display: inline-block;
+}
+#nav a{
+	color:#fff;
+	text-decoration: none;
+}
+#nav a:hover{
+	color: #f00;
+	text-decoration: underline;
+}
+#content{
+	position: absolute;
+	top: 90%; left: 0%;
+	width: 100%;
+	color: #fff;
+}
+
+#introduction{
+	background-color: rgba(0,0,0,0.9);
+	position: relative;
+	padding: 5%;
+}
+
+#container{
+	background-color: rgba(0,0,0,0.9);
+	position: relative;
+	padding: 5%; 
+	display: grid;
+	grid-gap: 10px 10px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+}
+.col{
+	width:95%;
+	float: left;
+}
+.image{
+	border-radius: 10%;
+	width: 100%;
+	height: auto;
+	transition: 1s;
+}
+.image:hover{
+	border-radius: 0%;
+	transition: 1s;
+	border: solid 2px #f00;
+	transform: scale(1.05);
+}
+
+#subscribe{
+	background-color: rgba(255,255,255,0.9);
+	color: #000;
+	position: relative;
+	padding: 5%;
+}
+fieldset{
+	position: relative;
+	width: 70%;
+	left: 15%;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 2px 1px 1px #000
+}
+.form-items{
+	margin-top: 3%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.form-list{
+	margin: 5%;
+	width: 100%;
+}
+.input{
+	border: none;
+	background: rgba(255,255,255,0.1);
+	border-bottom: solid 1px #000;
+	border-radius: 3px;
+	width: 85%;
+	padding: 4%;
+	transition: 1s;
+}
+.required{
+	border-bottom: solid 1px #f00;
+}
+.input:hover{
+	box-shadow: 0px 3px 5px -2px #000;
+	background: rgba(255,255,255,0.9);
+	transition: 1s;
+}
+input[type=submit]{
+	margin: 5%;
+	padding: 1%;
+	width: 10%;
+	border: none;
+	border: solid 1px #000;
+	transition: 1s;
+}
+input[type=submit]:hover{
+	transform: scale(1.05);
+	border-radius: 1px;
+	box-shadow: 0px 2px 1px -2px #000;
+	transition: 1s;
+}
+#subs{
+	position: relative;
+	border-collapse: collapse;	
+	width:70%;
+	left: 10%;
+	margin: 5%;
+}
+td, th{
+	border: solid 1px #000;
+	padding: 5%;
+	text-align: left;
+}
+
+
+@media(max-width: 800px){
+	body{
+		background: #000;
+	}
+	#content{
+		position: relative;
+		top: 0%;
+	}
+	#container, .form-items{
+		grid-template-columns: 1fr; 
+	}
+	#subs{
+		position: relative;
+		width: 70%;
+	}
+	td, th{
+		padding: 3%;
+	}
+	.image:hover{
+		
+	}
+	input[type=submit]{
+		width: 20%;
+	}
+}

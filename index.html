@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>FIFA World Cup Review</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+
+	<body>
+		<nav id="nav">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#subscribe">Contact</a></li>
+			</ul>
+		</nav>
+
+		<section id="content">
+			<div id='introduction'>
+				<h1>Lorem Ipsum is dummy text</h1>
+				<p>
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				</p>
+				<p>
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				</p>
+			</div>
+
+			<!---This section contains the team images and bio---->
+			<section id="container">
+				<div class='col'>
+					<a href="https:www.thenff.com" target="_blank"><img class="image" src="img/Nigeria.jpg"></a>
+					<h5>Nigeria</h5>
+					<p>QIJbcnxc sjnkdcm, kjldvn kdjfb s,dc zxclkn, mm fdwewecdcc..
+					 dsikdnlskdfs</p>
+					<p>jskmdnsd sdjnms,dc sdksmk dsdcsd. jdmncsijkdjn irjbmsdicknsdc. jsnkdmcofw
+					sn cnjwknmwd csiocnkwijfifjwrnfwmefwesmnufwe.</p>
+				</div>
+
+				<div class='col'>
+					<a href="https:www.cbf.com.br" target="_blank"><img class="image" src="img/Brazil.jpg"></a>
+					<h5>Brazil</h5>
+					<p>QIJbcnxc sjnkdcm, kjldvn kdjfb s,dc zxclkn, mm fdwewecdcc..
+					 dsikdnlskdfs</p>
+					<p>jskmdnsd sdjnms,dc sdksmk dsdcsd. jdmncsijkdjn irjbmsdicknsdc. jsnkdmcofw
+					sn cnjwknmwd csiocnkwijfifjwrnfwmefwesmnufwe.</p>
+				</div>
+
+				<div class='col'>
+					<a href="https:www.conmebol.com" target="_blank"><img class="image" src="img/Argentina.jpg"></a>
+					<h5>Argentina</h5>
+					<p>QIJbcnxc sjnkdcm, kjldvn kdjfb s,dc zxclkn, mm fdwewecdcc..
+					 dsikdnlskdfs</p>
+					<p>jskmdnsd sdjnms,dc sdksmk dsdcsd. jdmncsijkdjn irjbmsdicknsdc. jsnkdmcofw
+					sn cnjwknmwd csiocnkwijfifjwrnfwmefwesmnufwe.</p>
+				</div>				
+			</section>	
+			<!---Section end----->
+
+
+			<!----This section contains the subscriber's form and a table of subscriber's-------->
+			<section id="subscribe">
+				<form id="subscribe-form" method='get'>
+					<fieldset>
+						<legend><h1>Subscribe</h1></legend>
+						<div class="form-items">
+							<div class="form-list">
+								<span><input type="text" class="input required" name="names" placeholder="Enter your name" required></span>
+								<!--<span class='input-info'>enter your name</span>-->
+							</div>
+							<div class="form-list">
+								<span><input type="email" class="input required" name="email" placeholder="Enter your email address" required></span>
+							</div>
+							<div class="form-list">
+								<span><input type="text" class="input" name="phone" placeholder="Enter your phone number"></span>
+							</div>
+							<div class="form-list">
+								<span><input type="date" class="input" name="dob" placeholder="Enter your date of birth"></span>
+							</div>
+						</div>
+						<input type="submit" name="sub" value="Subscribe">
+					</fieldset>
+				</form>
+				
+				<table id="subs">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email Address</th>
+							<th>Phone Number</th>
+							<th>Date of birth<br>(yyyy/mm/dd)</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+
+			</section>
+			<!-----Section end------->
+		</div>	
+	</body>
+
+
+
+	<script>
+		/*
+		This script appends the form details to the table wheni its submitted.
+		It does this by first creating a subscriber object from the subscriber class with the form details, 
+		and then an array to hold the object.
+		The new object is then pushed into the array and then written to the html table.
+
+		The data stored in this table is not persistent. It only remains as long as the page isn't refreshed.
+		*/
+
+		// class subscriber{
+		// 	constructor(name, email, phone, dob){
+		// 		this.name = name;
+		// 		this.email = email;
+		// 		this.phone = phone;
+		// 		this.dob = dob;
+		// 	}
+		// }	
+
+		function Subscriber(name, email, phone, dob){
+			this.name = name;
+			this.email = email;
+			this.phone = phone;
+			this.dob = dob;
+		}													//creates a subscriber object with the subscriber's details;
+
+		let subscriberArray = [] 								//An array to hold the subscribers;
+		let form = document.getElementById('subscribe-form');
+
+		form.onsubmit = function(event){
+			event.preventDefault();
+			let newSub = new Subscriber(form.names.value, form.email.value, form.phone.value, form.dob.value); //creates a subscriber object with the details from the form;
+			subscriberArray.push(newSub);                     //push the new object into the array;
+			let table = document.getElementById('subs');
+			let entry = table.insertRow(); 						//create a new table row for the subscriber
+			let name = entry.insertCell(0), email = entry.insertCell(1), phone = entry.insertCell(2), dob = entry.insertCell(3); //insert corresponding cells into the row;
+			name.innerHTML = subscriberArray[0].name; 			//assign the form values into the corresponding cells.
+			email.innerHTML = subscriberArray[0].email;			//it's always indexed at 0 because the subcrber object is deleted from
+			phone.innerHTML = subscriberArray[0].phone;			//the subscriber array afterwards. Hence there's only ever one item in the 
+			dob.innerHTML = subscriberArray[0].dob;				//array.
+			subscriberArray.pop(); 								//delete the subscriber object from the array.
+		}
+	</script>
+
+
+</html>
