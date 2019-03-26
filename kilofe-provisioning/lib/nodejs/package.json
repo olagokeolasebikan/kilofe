@@ -1,0 +1,15 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olagoke Olasebikan",
+  "license": "ISC",
+  "keywords": [],
+  "description": "A simple node server",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
