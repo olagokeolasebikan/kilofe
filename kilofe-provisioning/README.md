@@ -23,14 +23,8 @@ terraform apply
 ```
 ## Provision output...
 ...
-Apply complete! Resources: 11 added, 0 changed, 0 destroyed.
+Apply complete! Resources: <No> added, 0 changed, 0 destroyed.
 
-Outputs:
-
-aws_instance-ci-public_dns = <hostname>.compute-1.amazonaws.com
-aws_platform-name = okappy-global-us-east-1
-...
-```
 
 ```
 ## Access server via SSH and Docker
