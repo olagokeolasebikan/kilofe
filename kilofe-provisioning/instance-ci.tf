@@ -45,29 +45,13 @@ resource "aws_volume_attachment" "ci" {
   }
 
   provisioner "remote-exec" {
-    when = "destroy"
-
-    inline = [
-      "sudo docker stop $(sudo docker ps -q)",
-      "sudo umount /mnt/data",
-      "sudo umount /dev/xvdh",
-    ]
+    when   = "destroy"
+    script = "remote_scripts/destroy_ci.sh"
 
     connection {
       host        = "${aws_instance.ci.public_ip}"
       user        = "ubuntu"
       private_key = "${file("./.private/kilofeci.pem")}"
     }
-  }
-
-  provisioner "remote-exec" {
-    when   = "destroy"
-    script = "remote_scripts/destroy_ci.sh"
-  }
-
-  connection {
-    host        = "${aws_instance.ci.public_ip}"
-    user        = "ubuntu"
-    private_key = "${file("./.private/kilofeci.pem")}"
   }
 }

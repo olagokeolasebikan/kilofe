@@ -32,7 +32,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 
-echo "Starting Docker with jenkinsci/blueocean image"
+echo "Starting Jenkins on Docker "
 sudo docker run -d \
 --user root \
 --name kilofe-jenkins \
@@ -64,8 +64,8 @@ sudo docker run -d --name=kilofe-grafana \
 -p 3000:3000 grafana/grafana
 
 # echo "Building nodejs"
-# sudo docker build -t kilofe-nodejs -t kilofe-nodejs lib/nodejs/
+# sudo docker build -t kilofe-nodejs lib/nodejs
 
 # echo "Running nodejs"
-# docker run -d -p 8500:8500
+# docker run -d -p 8500:8500 kilofe-nodejs
 
